@@ -10,7 +10,12 @@
   </div>
   <ul class="m-1" class="cards">
     <% @lists.each do |list| %>
-      <li class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../../assets/images/classic-movies)"><%= link_to list.name, list_path(list) %></li>
+      <li>
+        <div class="card-category"
+        style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @article.photo.key, height: 300, crop: :fill %>')">
+          <%= link_to list.name, list_path(list) %>
+        </div>
+      </li>
     <% end %>
   </ul>
 </div>
