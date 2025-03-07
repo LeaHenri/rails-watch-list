@@ -1,6 +1,6 @@
 <div class="container">
   <%= simple_form_for [@list, @bookmark] do |f|%>
-    <%= f.input :comment placeholder: "Enter a comment about the movie" %>
+    <%= f.input :comment, placeholder: "Enter a comment about the movie" %>
     <%#= f.input :movie_id, collection: Movie.all %>
     <%= f.association :movie %>
     <%= f.submit %>

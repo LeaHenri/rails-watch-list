@@ -1,12 +1,16 @@
-<h1>Save any kind of movies</h1>
-
-<div>
-  <%= link_to "create a movie list", new_list_path %>
+<div class="list-banner">
+  <h1>Save any kind of movies</h1>
+  <h2>Classic</h2>
 </div>
 
-<h2>My lists</h2>
-<ul>
-  <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list) %></li>
-  <% end %>
-</ul>
+<div class="container d-flex flex-column">
+  <div class="d-flex justify-content-between ">
+    <h2 class="text-bold">My Lists</h2>
+    <button class="btn btn-success text-white" type="submit><%= link_to "New List", new_list_path %></button>
+  </div>
+  <ul class="m-1" class="cards">
+    <% @lists.each do |list| %>
+      <li class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../images/classic-movies)"><%= link_to list.name, list_path(list) %></li>
+    <% end %>
+  </ul>
+</div>

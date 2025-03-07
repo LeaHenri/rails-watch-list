@@ -12,6 +12,13 @@
 
   <body>
   <div class="container">
+    <div class="navbar-lewagon">
+    <div class="logo"> <i class="fa-solid fa-film"></i> </div>
+    <div class="links d-flex">
+      <div class="px-3"><%= link_to "My lists", lists_path %></div>
+      <div class="px-3"><%= link_to "New List", new_list_path %></div>
+    </div>
+    </div>
     <%= yield %>
   </div>
   </body>
