@@ -1,12 +1,12 @@
 <h1><%=  @list.name%></h1>
 
-<%#= "You haven't saved any movies yet!" if @list.movies.empty? %>
+<%= "You haven't saved any movies yet!" if @list.movies.empty? %>
 
 <%= link_to "Add a movie to my list",  new_list_bookmark_path(@list) %>
 
   <% @list.movies.each do |movie| %>
      <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
-     <%#= image_tag movie.poster_url, alt: movie.title%>
+     <%= image_tag movie.poster_url, alt: movie.title%>
      <%= movie.title %>
      <%= movie.rating %>
      <%= movie.overview %>
