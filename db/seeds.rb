@@ -21,8 +21,7 @@ list = JSON.parse(URI.parse(url).read) # mettre du JSON en RUBY
 
 movies_list = list['results']
 
-10.times do |i|
-  hash = movies_list[i]
+movies_list.each do |hash|
   movie = Movie.new(
     title: hash['title'],
     overview: hash['overview'],

@@ -1,4 +1,4 @@
-<div class="list-banner">
+<div class="list-banner ">
   <h1>Save any kind of movies</h1>
   <h2>Classic</h2>
 </div>
@@ -6,16 +6,15 @@
 <div class="container d-flex flex-column">
   <div class="d-flex justify-content-between ">
     <h2 class="text-bold">My Lists</h2>
-    <button class="btn btn-success text-white" type="submit><%= link_to "New List", new_list_path %></button>
+    <button class="btn btn-success text-white" type="submit"><%= link_to "New List", new_list_path %></button>
   </div>
-  <ul class="m-1" class="cards">
-    <% @lists.each do |list| %>
-      <li>
-        <div class="card-category"
-        style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @article.photo.key, height: 300, crop: :fill %>')">
-          <%= link_to list.name, list_path(list) %>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+    <ul class="m-1 cards">
+      <% @lists.each do |list| %>
+        <li>
+            <%= link_to list.name, list_path(list) %>
+        </li>
+      <% end %>
+    </ul>
 </div>
+
+<%# card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>
