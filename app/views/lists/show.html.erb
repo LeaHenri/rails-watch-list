@@ -1,21 +1,28 @@
 <div class="container">
-  <div class="div">
-    
+
+
+  <% image_url = @list.photo.present? ? cl_image_path(@list.photo.key, height: 100, crop: :fill) : cl_image_path("a9asb2eyqjid80i61mda", crop: :fill) %>
+  <div class="list-banner card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_url %>')">
+
     <h1><%=  @list.name%></h1>
     <%= "You haven't saved any movies yet!" if @list.movies.empty? %>
     <%= link_to "Add a movie to my list",  new_list_bookmark_path(@list) %>
   </div>
 
-  <div>
-    <% @list.movies.each do |movie| %>
-        <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
-        <%= image_tag movie.poster_url, alt: movie.title%>
-        <%= movie.title %>
-        <%= movie.rating %>
-        <%= movie.overview %>
-        <%= bookmark.comment %>
-        <%= link_to "delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}%>
-    <% end %>
+    <div class="py-3">
+      <% @list.movies.each do |movie| %>
+        <div class="d-flex">
+          <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+          <div> <%= image_tag movie.poster_url, alt: movie.title%></div>
+          <h3><%= movie.title %></h3>
+          <p><%= movie.rating %></p>
+          <p><%= movie.overview %></p>
+          <p><%= bookmark.comment %></p>
+          <p><%= link_to "delete film", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}%></p>
+        </div>
+      <% end %>
+    </div>
+
   </div>
 
   <div>

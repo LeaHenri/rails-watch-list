@@ -1,4 +1,4 @@
-<div class="list-banner ">
+<div class="list-banner card-category" style="background-image: url('<%= cl_image_path("a9asb2eyqjid80i61mda", crop: :fill) %>')">
   <h1>Save any kind of movies</h1>
   <h2>Classic</h2>
 </div>
@@ -10,11 +10,10 @@
   </div>
     <ul class="m-1 cards">
       <% @lists.each do |list| %>
-        <li>
-            <%= link_to list.name, list_path(list) %>
+        <% image_url = list.photo.present? ? cl_image_path(list.photo.key, height: 100, crop: :fill) : cl_image_path("a9asb2eyqjid80i61mda", crop: :fill) %>
+        <li class="card-category" style="background-image: url('<%= cl_image_path(image_url, crop: :fill) %>')">
+        <%= link_to list.name, list_path(list) %>
         </li>
       <% end %>
     </ul>
 </div>
-
-<%# card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>
